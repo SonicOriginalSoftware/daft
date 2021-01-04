@@ -15,9 +15,9 @@ But be sure to include tests that validate the behavior you've defined in your c
 
 # Bad Practice
 
-Yes. Yes I did! There exists few other professions where the contract for work is determined as the work is done, or even _after_ it.
+There exists few professions where the contract for work is determined as the work is done, or even _after_ it. Software is not one of them.
 
-No. `swagger` is simply not a good tool nor approach. You define your contract based on your customer's needs/desires. You document that contract. _THEN_ you implement the behavior.
+No, `swagger` is simply not a good tool or approach. You define your contract based on your customer's needs/desires. You document that contract. _THEN_ you implement the behavior.
 
 If the behavior does not reflect the contract then it is a _BUG_. CONTRACT DICTATES BEHAVIOR. Not the other way around. Not simultaneously.
 

@@ -1,7 +1,6 @@
 # General
-This folder contains code necessary to run a server that listens for for git-related requests and handles them appropriately.
 
-Could be thought of as a git backend API.
+Server that listens for for `git`-related requests and handles them appropriately.
 
 # API functions
 
@@ -12,15 +11,14 @@ Could be thought of as a git backend API.
 - **`name`**
 - `template` - template directory to use for initial bare repository (send as compressed archive).
 
-    This would be most useful for uploading custom hooks
-    Any `.git` file not uploaded will use the default from `git init --bare`.
+  This would be most useful for uploading custom hooks
+  Any `.git` file not uploaded will use the default from `git init`.
+
 - `default_branch_name`
 
 ### Notes
 
 Creates a new repository with a given `name`.
-
-This new repository will be given standard `git hooks`, optionally with extras provided during initialization.
 
 ### Example Requests
 
@@ -53,10 +51,10 @@ This new repository will be given standard `git hooks`, optionally with extras p
 
 ### Types
 
-### Parameters
+### Parameters (bold denotes required parameter)
 
 - **`name`**
-- **`supplemental_hooks`** - Update repository hooks (add/remove/modify hook files)
+- **`supplemental_hooks`** - Update repository hooks (add/remove/modify hook files, sent as compressed archive)
 
 ### Example Requests
 

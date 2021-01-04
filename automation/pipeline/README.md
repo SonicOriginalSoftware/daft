@@ -2,34 +2,74 @@ Pipelines are built using `yaml` files. Example syntax is included with [the exa
 
 # Pipeline status
 
-Pipelines can be customized to send statuses to your monitor of choice (the included portal, GitHub Status Checks, etc.).
+Pipelines can be customized to send statuses to your monitor of choice (the included portal, GitHub Status Checks, etc.) by using commands to send statuses in your shell scripts.
 
 There are some ready-made functions available for sending pipeline status to the included portal.
 
+**TODO** Is there, Nate? Is there _really_?
+
 Pull-Requests of functions to send pipeline status to other monitors are welcome.
 
-This leaves the granularity of the reporting directly to you - status of individual steps, jobs, stages, etc.
+# Source code availability
+
+Note that the queue has access to pipeline files, not necessarily source code. To access source code from the pipeline shell scripts make sure to run the proper cloning commands.
 
 # Basic syntax
 
 Pipelines are broken down into Stages, then Jobs, then Steps.
 
 - `events`: map of events that will trigger this pipeline
+
 - `env`: global env variables used by all stages/jobs
+
+- `resources`: scripts, artifacts, files to be included in all stages and jobs
+
 - `stages`: occur sequentially, top-level
   - `env`: Environment variables used by all jobs in this stage
+  - `if`: Conditional for when to execute this stage
   - `resources`: scripts, artifacts, files to be included in all jobs in this stage (represented as paths)
   - `jobs`: occur in parallel, belonging to a `stage`, executed on a runner
     - `env`: Environment variables usable by this job
+    - `if`: Conditional for when to execute this job
     - `resources`: scripts, artifacts, files to be included (sent along with the pipeline steps) when this job runs (represented as paths)
     - `attributes`
       - `shell` (posix, powershell)
       - `OS` (windows, linux, macOS, any)
       - `arch` (x86_64, arm64)
-    - `steps`: the individual shell commands
+    - `script`: the path to the script file to execute
     - `artifacts`: map of artifact names and the path of the artifact to be uploaded
 
       Artifacts are uploaded as a single file if the artifact path is a single file, otherwise they will be archived, compressed, and uploaded.
+
+# Pre-defined variables
+
+**TODO**
+
+It would be helpful to have access to a token to retrieve private repos similar to the way the `$GITHUB_TOKEN` works.
+
+Also to have branch information relayed depending on event types.
+
+Along with repository name, repository grouping/pathing, etc.
+
+# Conditionals
+
+Valid `if` statements for jobs and stages:
+
+- `success()` - default
+- `failure()` - previous stage/job failed
+- `always()` - run regardless of previous stage/job success or failure
+
+# Events/Hooks
+
+See your respective code repository documentation for the events or hooks that can be attached (e.g. [git](../../code-repository/git/README.md)).
+
+## Filtering
+
+Most events can be filtered. For specific filtering capabilities refer to your respective code repository documentation (e.g. [git](../../code-repository/git/README.md)).
+
+### Filtering Example
+
+**TODO**
 
 # Sharing execution between pipelines
 

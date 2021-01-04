@@ -28,46 +28,54 @@ Once Deno wraps up http2 and runs on ARM64/musl, this project will migrate to us
 
 This project is hosted on GitHub because I don't trust my home ISP to reliably serve this repository. The cloud can still be a good solution for certain problems.
 
-## Components
-
-### Code Repository
-
-Source control repository hosting.
-
-### Automation
-
-Automate your processes.
-
-### Artifact Repository
-
-Repository for your artifacts.
-
-Coming soon!
-
-### Issue Tracker
-
-Track issues, stories, boards, the whole AGILE #!.
-
-Also coming soon!
-
-### Merge Manager
-
-Manage code-repository branching and merging.
-
-Also coming soon!
-
-### Wiki
-
-Document your solution.
-
-Also coming soon!
-
-### Portal
+## [Portal](portal)
 
 Your method of managing the madness.
 
 Also coming soon!
 
-## License
+### Components
 
-See [the LICENSE](LICENSE)
+#### [Code Repository](code-repository)
+
+Source control repository hosting.
+
+- [`git`](code-repository/git/README.md)
+- [`hg`](code-repository/hg/README.md)
+- [`svn`](code-repository/svn/README.md)
+
+#### [Automation](automation)
+
+Automate your processes.
+
+#### [Artifact Repository](artifact-repository)
+
+Repository for your artifacts.
+
+Coming soon!
+
+#### [Issue Tracker](issue-tracker)
+
+Track issues, stories, boards, the whole AGILE #!.
+
+Also coming soon!
+
+#### [Merge Manager](merge-manager)
+
+Manage code-repository branching and merging.
+
+Also coming soon!
+
+#### [Key Vault](key-vault)
+
+Store secrets relevant to your project.
+
+Also coming soon!
+
+#### [Wiki](wiki)
+
+Document your solution.
+
+Also coming soon!
+
+## [LICENSE](LICENSE)

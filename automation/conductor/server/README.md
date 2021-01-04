@@ -2,7 +2,7 @@
 
 Receives requests to queue pipelines from `automation` server.
 
-`automation` server only cares about whether the conductor successfully adds the pipeline to a queue; the response should not dictate whether a runner has been assigned. It can report on where in the queue that pipeline was seated.
+The `automation` server only cares about whether the conductor successfully adds the pipeline to a queue; the response should not dictate whether a runner has been assigned. It can report on where in the queue that pipeline was seated.
 
 ## Endpoints
 
@@ -19,4 +19,5 @@ Reports to the portal with the status of the runners as well as receiving inform
 - `remove` - remove a runner to be managed by the conductor
 - `list` - list runners managed by the conductor
 
-  This can be filtered with runner attributes
+  This can be filtered by runner attributes
+  Can be configured to retrieve status of runners as well

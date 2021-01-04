@@ -10,12 +10,12 @@ Configuring runners includes defining network location and attributes for each r
 
 # Server
 
-Conductor sends pipeline files to a runner through an http server.
+Conductor sends job commands to a runner through an http server.
 
 ## Endpoints
 
 - `status` - reports back with the state of the runner (defined in [States](#states))
-- `start` - receives a pipeline file and begins pipeline execution
+- `start` - receives job commands and begins execution
 
 # States
 
@@ -23,9 +23,9 @@ Conductor sends pipeline files to a runner through an http server.
 - `running`
 - `undefined` - not a good state to be in; issue a restart of this runner's service
 
-# Pipeline
+# Jobs
 
-The runner executes the pipeline file and when finished, reports that the runner is available for new pipelines.
+The runner executes job commands and when finished, reports that the runner is available for new jobs.
 
 # Attributes
 

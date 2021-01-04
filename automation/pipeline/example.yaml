@@ -16,8 +16,7 @@
               shell: 'posix'
               os: 'linux'
               arch: 'x86_64'
-            steps: |
-              echo 'Building...'
+            script: scripts/build.sh
             artifacts:
               build: 'path-to-build-folder'
 
@@ -26,8 +25,7 @@
               shell: 'powershell'
               os: 'windows'
               arch: 'x86_64'
-            steps: |
-              echo 'Hello, world!'
+            script: scripts/build.ps1
 
   - test:
       env:
@@ -39,18 +37,27 @@
               shell: 'posix'
               os: 'linux'
               arch: 'x86_64'
-            steps: |
-              echo 'Testing...'
+            script: scripts/test.sh
 
   - deploy:
       resources: []
       jobs:
         - deploy:
             env:
-              ENV: 'TEST'
+              ENV: 'DEPLOY'
             attributes:
               shell: 'posix'
               os: 'any'
               arch: 'x86_64'
-            steps: |
-              echo 'Deploying...'
+            script: scripts/deploy.sh
+
+  - notify:
+      if: always()
+      jobs:
+        - deploy:
+            attributes:
+              shell: 'posix'
+              os: 'any'
+              arch: 'x86_64'
+            script: notify.sh
+
