@@ -1,53 +1,73 @@
 # The Solution
 
-# What is this?
+## What is this?
 
-You have been looking for a place to throw your git repositories that isn't in the cloud.
+Have you been looking for a place to throw your git repositories that isn't in the cloud - kept on-prem?
 
-But you also need an automated CI/CD solution.
+But you also need an automated CI/CD solution?
 
-And an issue tracker.
+And an issue tracker?
 
-And artifact hosting.
+And artifact hosting?
 
 And ...
 
+And GitLab is taking too long to implement even the most basic of features?
+
 Look no further. The Solution is here!
 
-# Migration to Deno
+## Are you full of yourself?
+
+Really, I'm not. I couldn't think of a good name and I wanted to jump straight into implementing rather than figure out what FOTM single-word trendy name would suit this system.
+
+## Migration to Deno
 
 Once Deno wraps up http2 and runs on ARM64/musl, this project will migrate to using Deno over nodejs.
 
-# Dogfood
+## Dogfood
 
-This project is hosted on GitHub because I don't trust Spectrum Internet to reliably serve this repository. The cloud can still be a good solution for certain problems.
+This project is hosted on GitHub because I don't trust my home ISP to reliably serve this repository. The cloud can still be a good solution for certain problems.
 
-# Components
+## Components
 
-## Artifact Repository
+### Code Repository
 
-Repository for your artifacts. Coming soon!
+Source control repository hosting.
 
-## Automation
+### Automation
 
 Automate your processes.
 
-Attach to code repository events and potentially other events in the future as well.
+### Artifact Repository
 
-## Code Repository
+Repository for your artifacts.
 
-`git` hosting. Hopefully other repository hosting in the future.
+Coming soon!
 
-**Note** In keeping with simplicity, setting up a new `git` repository means initializing a bare `git` repository behind-the-scenes.
+### Issue Tracker
 
-Once the repository has been initialized, hook callbacks are implemented to fulfill your event-driven architecture needs.
+Track issues, stories, boards, the whole AGILE #!.
 
-## Issue Tracker
+Also coming soon!
 
-Track issues.
+### Merge Manager
 
-## Portal
+Manage code-repository branching and merging.
 
-Your method of managing the madness. The portal folder contains the source for running the administration portal to configure the other components.
+Also coming soon!
 
-© 2021 Nathan Blair
+### Wiki
+
+Document your solution.
+
+Also coming soon!
+
+### Portal
+
+Your method of managing the madness.
+
+Also coming soon!
+
+## License
+
+See [the LICENSE](LICENSE)

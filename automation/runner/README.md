@@ -1,0 +1,54 @@
+<!-- runner software should be able to be run cross-platform -->
+<!-- i.e. should be able to spin-up a deamonized runner on macOS, linux, or Windows -->
+<!-- linux runners could be containerized -->
+<!-- should allow runners to be configured across networks -->
+<!-- i.e. can use a self-hosted VM runner, self-hosted bare-metal runner, cloud-based runner container service, etc. -->
+
+Configure runners attached to the conductor through the portal.
+
+Configuring runners includes defining network location and attributes for each runner service.
+
+# Server
+
+Conductor sends pipeline files to a runner through an http server.
+
+## Endpoints
+
+- `status` - reports back with the state of the runner (defined in [States](#states))
+- `start` - receives a pipeline file and begins pipeline execution
+
+# States
+
+- `available`
+- `running`
+- `undefined` - not a good state to be in; issue a restart of this runner's service
+
+# Pipeline
+
+The runner executes the pipeline file and when finished, reports that the runner is available for new pipelines.
+
+# Attributes
+
+## OS
+
+### Windows
+
+**TODO**
+
+### Linux
+
+**TODO**
+
+### macOS
+
+**TODO**
+
+## Architecture
+
+### x86_64
+
+**TODO**
+
+### arm64
+
+**TODO**
