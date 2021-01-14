@@ -3,7 +3,6 @@
     "lib": ["ES6"],
     "module": "ESNext",
     "target": "ES6",
-    "allowJs": true,
     "checkJs": true,
     "alwaysStrict": true,
     "noImplicitAny": true,
@@ -14,9 +13,10 @@
     "noImplicitReturns": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist"
   },
-  "exclude": [
-    "coverage", "node_modules"
-  ]
+  "typeAcquisition": {"enable": true},
+  "include": [
+    "**/*"
+  ],
+  "exclude": ["coverage", "node_modules"]
 }
