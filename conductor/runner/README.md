@@ -4,7 +4,7 @@
 <!-- should allow runners to be configured across networks -->
 <!-- i.e. can use a self-hosted VM runner, self-hosted bare-metal runner, cloud-based runner container service, etc. -->
 
-Configure runners attached to the conductor through the portal.
+Configure runners attached to the `conductor` through the portal.
 
 Configuring runners includes defining network location and attributes for each runner service.
 

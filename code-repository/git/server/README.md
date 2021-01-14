@@ -1,10 +1,10 @@
-# General
-
 Server that listens for for `git`-related requests and handles them appropriately.
 
 # API functions
 
 ## `create`
+
+Creates a new repository with a given `name`.
 
 ### Parameters (bold denotes required parameter)
 
@@ -16,15 +16,13 @@ Server that listens for for `git`-related requests and handles them appropriatel
 
 - `default_branch_name`
 
-### Notes
-
-Creates a new repository with a given `name`.
-
 ### Example Requests
 
 - **TODO**
 
 ## `read`
+
+Returns information about a repository.
 
 ### Parameters (bold denotes required parameter)
 
@@ -36,12 +34,22 @@ Creates a new repository with a given `name`.
 
 - **TODO**
 
+### Return Schema
+
+<!-- TODO -->
+
+```json
+{}
+```
+
 ## `update`
+
+Update repository (`.git`) files.
 
 ### Parameters (bold denotes required parameter)
 
 - **`name`**
-- **`files`** - Update repository `.git` files (send as compressed archive)
+- **`files`** - `.git` files to be updated (send as compressed archive)
 
 ### Example Requests
 
@@ -49,12 +57,12 @@ Creates a new repository with a given `name`.
 
 ## `delete`
 
-### Types
+Delete repository (`.git`) files (replaces with default).
 
 ### Parameters (bold denotes required parameter)
 
 - **`name`**
-- **`supplemental_hooks`** - Update repository hooks (add/remove/modify hook files, sent as compressed archive)
+- **`file_names`** - `.git` file names to be deleted (can use wildcards)
 
 ### Example Requests
 

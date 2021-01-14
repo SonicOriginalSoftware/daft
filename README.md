@@ -2,7 +2,7 @@
 
 # What is this?
 
-Have you been looking for a place to throw your git repositories (cloud or on-prem) and finding the current options lackluster?
+Have you been looking for a place to throw your code repositories (cloud or on-prem) and finding the current options lackluster?
 
 But you also need an automated CI/CD solution?
 
@@ -28,68 +28,61 @@ Once Deno wraps up http2 and runs on ARM64/musl, this project will migrate to us
 
 This project is hosted on GitHub because I don't trust my home ISP to reliably serve this repository. The cloud can still be a good solution for certain problems.
 
+Once the codebase and orchestration are more fully implemented I may look into hosting through a cloud provider.
+
 # [Portal](portal)
 
 Your method of managing the madness.
 
-Also coming soon!
+## [Wiki](wiki)
 
-## Components
+Document your solution and embed it into your portal.
 
-### [Code Repository](code-repository)
+Coming soon!
+
+# Code Repository
 
 Source control repository hosting.
 
-- [`git`](code-repository/git/README.md)
-- [`hg`](code-repository/hg/README.md)
-- [`svn`](code-repository/svn/README.md)
+## `git`
 
-### [Automation](automation)
+- [`git` repository hosting](code-repository/git)
+- [Merge Manager](code-repository/git/merge-manager)
+
+## [`hg`](code-repository/hg/README.md)
+
+- [`hg` repository hosting](code-repository/hg)
+
+## [`svn`](code-repository/svn/README.md)
+
+- [`svn` repository hosting](code-repository/svn)
+
+# [Automation](automation)
 
 Automate your processes.
 
-### [Artifact Repository](artifact-repository)
+# [Artifact Repository](artifact-repository)
 
 Repository for your artifacts.
 
 Coming soon!
 
-### [Issue Tracker](issue-tracker)
+# [Issue Tracker](issue-tracker)
 
 Track issues, stories, boards, the whole AGILE #!.
 
-Also coming soon!
+Coming soon!
 
-### [Merge Manager](merge-manager)
+# [Safe](safe)
 
-Manage code-repository branching and merging.
+Store confidential information relevant to your project.
 
-Also coming soon!
+Coming soon!
 
-### [Key Vault](key-vault)
+# [Registries](registries)
 
-Store secrets relevant to your project.
+Host package/container registries.
 
-Also coming soon!
-
-### [Registries](registries)
-
-Host package registries.
-
-Also coming soon!
-
-### [Wiki](wiki)
-
-Document your solution.
-
-Also coming soon!
-
-# Orchestration
-
-The portal, artifact-repository, issue-tracker, merge-manager, key-vault, wiki, code-repository, and all automation components except the runners themselves are best managed through orchestration.
-
-Since runners should be able to be deployed to any machine/architecture (like macOS), they can be included in orchestration but their service status may not tell the full story.
-
-See [Orchestration](orchestration)
+Coming soon!
 
 # [LICENSE](LICENSE)

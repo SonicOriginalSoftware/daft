@@ -61,11 +61,11 @@ Valid `if` statements for jobs and stages:
 
 # Events/Hooks
 
-See your respective code repository documentation for the events or hooks that can be attached (e.g. [git](../../code-repository/git/README.md)).
+See [Events](../#events) for more information.
 
 ## Filtering
 
-Most events can be filtered. For specific filtering capabilities refer to your respective code repository documentation (e.g. [git](../../code-repository/git/README.md)).
+Most events can be filtered. For specific filtering capabilities refer to the event/hook documentation for that component or service (e.g. [git](../../code-repository/git##server-side-hooks)).
 
 ### Filtering Example
 

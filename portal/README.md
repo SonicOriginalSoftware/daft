@@ -1,15 +1,69 @@
-# General
+# Portal Features
+
+- initialize portals
+- remove portals
+- modify portals
+  - add/remove sub-portals
+  - add/remove components
+  - modify components (see [Portal Management](#portal-management))
+
+## **Examples**
 
 Each of the components can be used and grouped arbitrarily and managed through the `portal`.
 
-For example, you can create a `portal` service for yourself and one for your company.
+- create a `portal` service for yourself and one for your company
 
-You can then integrate the `wiki` component for both your personal and company `portal` services.
+- integrate the `wiki` component for both your personal and company `portal` services
 
-And keep a top-level `issue-tracker` component available for your company `portal` service.
+- integrate a top-level `issue-tracker` component available for your company `portal` service
 
-Then create project groups for your company for an operating system and one for a web app framework.
+- create sub-portals inside your company for an operating system and one for a web app framework
 
-In the web app framework group, integrate the `key-vault` and `artifact-repository` components that can be shared amidst all of the framework code repositories.
+- in the web app framework portal, integrate the `artifact-repository` component that can be shared amidst all of the framework code repositories
 
-Then add a sub-group of the web app framework for tooling, integrate a `key-vault` specifically for that group, along with the `code-repository`, `automation`, and `issue-tracker` components.
+- add a sub-portal of the web app framework for tooling, integrate a `key-vault` specifically for that portal, along with the `code-repository`, `conductor`, and `issue-tracker` components
+
+- add a sub-portal of the web app framework for resources and integrate the `code-repository`, `conductor`, and `issue-tracker` components
+
+- add a sub-portal of the web app framework for the app shell and integrate the `code-repository`, `conductor`, and `issue-tracker` components
+
+# Portal Security
+
+Authorization is inherited between portals (sub-portals will retain the same authorization as their parent portals).
+
+# Portal Management
+
+## Code Repository
+
+### `git` Code Repository
+
+- initialize new repositories
+- rename existing repositories
+- assign branch protections
+- manage repository hooks
+  - enable communication with top-level conductor or configure attaching other automation systems
+
+## Conductor
+
+- initialize a conductor (top-level portal only)
+- deinitialize a conductor (top-level portal only)
+
+## Issue Tracker
+
+**TODO**
+
+## Registries
+
+**TODO**
+
+## Artifact Repository
+
+**TODO**
+
+## Safe
+
+**TODO**
+
+## Wiki
+
+**TODO**

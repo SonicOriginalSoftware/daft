@@ -2,9 +2,11 @@
 
 Used to initialize remote repositories through the portal.
 
-It initializes repos with pre-configured hooks that can be used with the included [`automation`](../../automation/README.md) component or other CI/CD tools.
+Repos are pre-configured with hooks that can be used with the included [`conductor`](../../conductor) component or other CI/CD tools.
 
-See [the git server doc](server/README.md).
+See [the git server doc](server).
+
+# [Merge Manager](merge-manager)
 
 # Template
 
@@ -14,7 +16,7 @@ The default template directory to use when initializing a new `git` remote repos
 <!-- Looking for a server-side pre-merge-commit -->
 <!-- I think this implies that the remote will not be a `bare` repository... -->
 
-## Hooks (server-side)
+## Server-Side Hooks
 
 **NOTE** When implementing the scripts, it is best-practice to stick with POSIX-compliant shell code where applicable.
 
