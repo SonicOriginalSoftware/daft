@@ -15,7 +15,7 @@ The `conductor` server only cares about whether it successfully adds a pipeline 
 Reports to the portal with
 - the status of the conductor
   - the status of its runners
-  - actions for its runners that the user wants to configure (see [Endpoints](##endpoints))
+  - actions for its runners that the user wants to configure (see [Endpoints](#endpoints-1))
 
 ## Endpoints
 

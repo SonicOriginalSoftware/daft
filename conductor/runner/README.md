@@ -10,7 +10,7 @@ Configuring runners includes defining network location and attributes for each r
 
 # Server
 
-Conductor sends job commands to a runner through an http server.
+Conductor queue sends job commands to a runner through an http server.
 
 ## Endpoints
 

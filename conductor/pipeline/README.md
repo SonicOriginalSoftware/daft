@@ -65,7 +65,7 @@ See [Events](../#events) for more information.
 
 ## Filtering
 
-Most events can be filtered. For specific filtering capabilities refer to the event/hook documentation for that component or service (e.g. [git](../../code-repository/git##server-side-hooks)).
+Most events can be filtered. For specific filtering capabilities refer to the event/hook documentation for that component or service (e.g. [git](../../code-repository/git#server-side-hooks)).
 
 ### Filtering Example
 

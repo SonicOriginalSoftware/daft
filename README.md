@@ -34,7 +34,7 @@ Once the codebase and orchestration are more fully implemented I may look into h
 
 Your method of managing the madness.
 
-## [Wiki](wiki)
+## [Wiki](portal/wiki)
 
 Document your solution and embed it into your portal.
 
@@ -57,7 +57,7 @@ Source control repository hosting.
 
 - [`svn` repository hosting](code-repository/svn)
 
-# [Automation](automation)
+# [Conductor](conductor)
 
 Automate your processes.
 
