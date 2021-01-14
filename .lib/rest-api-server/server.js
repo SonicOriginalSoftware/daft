@@ -125,7 +125,6 @@ async function respond(stream, resource_path) {
   }
   stream.respond(response_headers)
   stream.write(content)
-  stream.end()
 }
 
 /**
@@ -137,12 +136,6 @@ async function on_stream(stream, headers) {
 
   const request = generate_request(headers)
 
-  let push_promise = null
-  if (request.resource_path === "/") {
-    request.resource_path = "/index.html"
-    if (stream.pushAllowed) push_promise = push_handler(stream)
-  }
-
   console.log(`[SERVER] Incoming request: ${JSON.stringify(request)}`)
 
   if (request.method === "POST") {
@@ -150,8 +143,9 @@ async function on_stream(stream, headers) {
     console.log(`Request payload: ${request.payload}`)
   }
 
+  if (stream.pushAllowed) await push_handler(stream)
   await respond(stream, request.resource_path)
-  if (push_promise !== null) await push_promise
+  stream.end()
 }
 
 async function main() {
@@ -170,12 +164,11 @@ async function main() {
   server.on("error", console.error)
 
   if (config.host === undefined) {
-    const host = await new Promise((resolve, reject) =>
+    config.host = await new Promise((resolve, reject) =>
       lookup(hostname(), (err, address) =>
         err ? reject(err) : resolve(address)
       )
     )
-    config.host = host
   } else if (config.host === "") {
     config.host = "localhost"
   }
