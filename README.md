@@ -2,7 +2,7 @@
 
 # What is this?
 
-Have you been looking for a place to throw your git repositories that isn't in the cloud - kept on-prem?
+Have you been looking for a place to throw your git repositories (cloud or on-prem) and finding the current options lackluster?
 
 But you also need an automated CI/CD solution?
 
