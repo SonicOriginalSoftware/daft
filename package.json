@@ -3,14 +3,16 @@
   "version": "0.0.1",
   "description": "One-stop shop for git hosting, CI/CD server, artifact hosting, and issue tracking",
   "type": "module",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [
     "ci",
     "cd",
     "artifact",
     "repository"
   ],
+  "devDependencies": {
+    "@types/node": "^14.14.20"
+  },
   "author": "Nathan Blair",
   "license": "0BSD"
 }

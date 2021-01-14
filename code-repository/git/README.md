@@ -1,10 +1,8 @@
-# Server
-
-Used to initialize remote repositories through the portal.
+Host git Code Repositories.
 
 Repos are pre-configured with hooks that can be used with the included [`conductor`](../../conductor) component or other CI/CD tools.
 
-See [the git server doc](server).
+# [Server](server)
 
 # [Merge Manager](merge-manager)
 
