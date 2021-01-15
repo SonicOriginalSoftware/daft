@@ -1,3 +1,3 @@
 export async function handle() {
-  return "Hello, World!"
+  return {"message": "Hello, world!"}
 }
