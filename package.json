@@ -13,9 +13,9 @@
     "repository"
   ],
   "devDependencies": {
-    "@sonicoriginalsoftware/fetcher": "^0.1.2",
+    "@sonicoriginalsoftware/fetcher": "file:../../fetcher",
     "@sonicoriginalsoftware/jester": "^0.2.6",
-    "@sonicoriginalsoftware/rest-api-server": "^0.1.0",
+    "@sonicoriginalsoftware/rest-api-server": "file:../../rest-api-server",
     "@types/node": "^14.14.21"
   },
   "author": "Nathan Blair",
