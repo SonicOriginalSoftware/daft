@@ -1,8 +1,34 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {},
+  "launch": {
+    "configurations": [
+      {
+        "type": "lldb",
+        "request": "launch",
+        "name": "Debug Portal Server",
+        "program": "${workspaceFolder}/portal/server/target/debug/portal-server",
+        "preLaunchTask": "Build Debug Portal Server",
+        "args": [],
+        "cwd": "${workspaceFolder}/portal/server"
+      }
+    ],
+    "compounds": []
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build Debug Portal Server",
+        "type": "shell",
+        "options": { "cwd": "${workspaceFolder}/portal/server" },
+        "command": "cargo build",
+        "problemMatcher": []
+      }
+    ]
+  }
 }
