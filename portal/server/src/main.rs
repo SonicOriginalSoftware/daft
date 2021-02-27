@@ -3,6 +3,7 @@ use actix_web::{HttpRequest, HttpResponse, Responder, Result};
 use std::path::PathBuf;
 
 async fn app(request: HttpRequest) -> Result<NamedFile> {
+    println!("Received app request!");
     // HttpResponse::Ok().body("Should return with app resources!");
 
     let path: PathBuf = request.match_info().query("filename").parse().unwrap();
@@ -10,10 +11,12 @@ async fn app(request: HttpRequest) -> Result<NamedFile> {
 }
 
 async fn api(_request: HttpRequest) -> impl Responder {
+    println!("Received api request!");
     HttpResponse::Ok().body("Should return with API response!")
 }
 
 async fn auth(_request: HttpRequest) -> impl Responder {
+    println!("Received auth request!");
     HttpResponse::Ok().body("Should return with Auth response!")
 }
 
@@ -22,6 +25,8 @@ async fn auth(_request: HttpRequest) -> impl Responder {
 // Each component will pretty much only use these scopes, and so the
 // abstracted-out function should accept callbacks to handlers for
 // these scopes
+
+// Will also maybe need a way to specify the path to where the /app resource files are
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
