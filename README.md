@@ -86,3 +86,7 @@ Host package/container registries.
 Coming soon!
 
 # [LICENSE](LICENSE)
+
+# And because *THIS* should never be a thing
+
+![image](https://user-images.githubusercontent.com/16280023/110984364-08444b00-8339-11eb-94a8-d804fc554526.png)
