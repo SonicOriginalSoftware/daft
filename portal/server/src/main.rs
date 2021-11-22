@@ -1,11 +1,24 @@
 use actix_files::NamedFile;
 use actix_web::{http, web, HttpRequest, HttpResponse, Responder, Result};
+use core::fmt;
 use std::path::{Path, PathBuf};
 
 struct AppState<'a> {
     name: &'a str,
     version: &'a str,
     path: PathBuf,
+}
+
+impl fmt::Display for AppState<'_> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
+        write!(
+            f,
+            "\nApp name: {}\nApp version: {}\nApp path: {}",
+            self.name,
+            self.version,
+            self.path.display()
+        )
+    }
 }
 
 async fn root() -> impl Responder {
@@ -58,13 +71,7 @@ async fn main() -> std::io::Result<()> {
             .join("public"),
     };
 
-    println!("");
-    println!("App name: {}", app_state.name);
-    println!("App version: {}", app_state.version);
-    println!("App path: {}", app_state.path.display());
-    println!("");
-
-    let app_data = web::Data::new(app_state);
+    println!("{}", app_state);
 
     println!("Starting server on {}://{}:{}...", SCHEME, HOST, PORT);
 
@@ -72,6 +79,8 @@ async fn main() -> std::io::Result<()> {
 
     // FIXME Logging not working
     // FIXME Fix routing of root / endpoint to /app endpoint
+
+    let app_data = web::Data::new(app_state);
 
     HttpServer::new(move || {
         App::new()
@@ -82,7 +91,8 @@ async fn main() -> std::io::Result<()> {
             ))
             .app_data(app_data.clone())
             .route("/", web::get().to(root))
-            .route("/app/{filename:.*}", web::get().to(app))
+            .route("/app", web::get().to(app))
+            .route("/{filename:.*}", web::get().to(app))
             .service(web::resource("/api").to(api))
             .service(web::resource("/auth").to(auth))
     })

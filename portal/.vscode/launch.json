@@ -8,10 +8,10 @@
       "type": "lldb",
       "request": "launch",
       "name": "Debug Portal Server",
-      "program": "${workspaceFolder}/portal/server/target/debug/portal-server",
+      "program": "${workspaceFolder}/server/target/debug/portal-server",
       "preLaunchTask": "Build Debug Portal Server",
       "args": [],
-      "cwd": "${workspaceFolder}/portal/server"
+      "cwd": "${workspaceFolder}/server"
     }
   ]
 }
