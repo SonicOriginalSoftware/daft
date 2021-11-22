@@ -2,19 +2,24 @@
   "name": "portal-client",
   "version": "0.1.0",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --single"
+    "dev": "rollup -c --environment PUBLIC:public -w",
+    "build": "rollup -c --environment PUBLIC:public",
+    "build:prod": "rollup -c --environment PUBLIC:public --environment PRODUCTION"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
-    "rollup": "^2.3.4",
-    "rollup-plugin-css-only": "^3.1.0",
+    "@rollup/plugin-dynamic-import-vars": "^1.1.1",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@types/node": "^14.14.37",
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.10",
+    "rollup": "^2.40.0",
+    "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.0.0",
-    "sirv-cli": "^1.0.0"
+    "rollup-plugin-scss": "^3.0.0-rc1",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.32.8",
+    "svelte": "^3.35.0",
+    "svelte-preprocess": "^4.6.9"
   }
 }

@@ -14,7 +14,13 @@ clean-all: clean-app clean-server
 server: server/target/debug/portal-server
 	cargo build --manifest-path server/Cargo.toml
 
-app/node_modules:
+package-lock.json: app/package.json
+	cd app && npm i
+
+app/node_modules: app/package-lock.json
 	cd app && npm ci
 
-app: app/node_modules
+app/public/build/main.js: app/node_modules
+	cd app && npm run build
+
+app: app/public/build/main.js

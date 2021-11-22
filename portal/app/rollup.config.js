@@ -1,76 +1,66 @@
-import svelte from 'rollup-plugin-svelte';
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import livereload from 'rollup-plugin-livereload';
-import { terser } from 'rollup-plugin-terser';
-import css from 'rollup-plugin-css-only';
+import dynamicImportVars from "@rollup/plugin-dynamic-import-vars"
+import resolve from "@rollup/plugin-node-resolve"
+import autoPrefixer from "autoprefixer"
+import del from "rollup-plugin-delete"
+import scss from "rollup-plugin-scss"
+import svelte from "rollup-plugin-svelte"
+import { terser } from "rollup-plugin-terser"
+import sass from "sass"
+import { sveltePreprocess } from "svelte-preprocess/dist/autoProcess"
 
-const production = !process.env.ROLLUP_WATCH;
+const production = process.env.PRODUCTION === "true"
 
-function serve() {
-	let server;
-
-	function toExit() {
-		if (server) server.kill(0);
-	}
-
-	return {
-		writeBundle() {
-			if (server) return;
-			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
-				stdio: ['ignore', 'inherit', 'inherit'],
-				shell: true
-			});
-
-			process.on('SIGTERM', toExit);
-			process.on('exit', toExit);
-		}
-	};
-}
+const publicDir = process.env.PUBLIC
+const outputDir = `${publicDir}/build`
 
 export default {
-	input: 'src/main.js',
-	output: {
-		sourcemap: true,
-		format: 'iife',
-		name: 'app',
-		file: 'public/build/bundle.js'
-	},
-	plugins: [
-		svelte({
-			compilerOptions: {
-				// enable run-time checks when not in production
-				dev: !production
-			}
-		}),
-		// we'll extract any component CSS out into
-		// a separate file - better for performance
-		css({ output: 'bundle.css' }),
+  input: "src/main.js",
+  output: {
+    sourcemap: !production,
+    format: "es",
+    file: `${outputDir}/main.js`,
+    inlineDynamicImports: true,
+  },
+  plugins: [
+    del({ targets: outputDir, force: true }),
 
-		// If you have external dependencies installed from
-		// npm, you'll most likely need these plugins. In
-		// some cases you'll need additional configuration -
-		// consult the documentation for details:
-		// https://github.com/rollup/plugins/tree/master/packages/commonjs
-		resolve({
-			browser: true,
-			dedupe: ['svelte']
-		}),
-		commonjs(),
+    svelte({
+      preprocess: [
+        sveltePreprocess({
+          sourceMap: !production,
+          postcss: {
+            plugins: [
+              autoPrefixer({
+                overrideBrowserslist: ["last 1 version", "ie >= 11"],
+              }),
+            ],
+          },
+        }),
+      ],
+      compilerOptions: {
+        dev: !production,
+        css: false,
+      },
+    }),
 
-		// In dev mode, call `npm run start` once
-		// the bundle has been generated
-		!production && serve(),
+    scss({
+      output: `${outputDir}/bundle.css`,
+      outputStyle: "compressed",
+      sass: sass,
+    }),
 
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
-		!production && livereload('public'),
+    resolve({
+      browser: true,
+      dedupe: ["svelte"],
+    }),
 
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
-		production && terser()
-	],
-	watch: {
-		clearScreen: false
-	}
-};
+    // Watch the `public` directory and refresh the
+    // browser on changes when not in production
+    // !production && livereload(publicDir),
+
+    production && terser(),
+
+    // https://www.npmjs.com/package/@rollup/plugin-dynamic-import-vars
+    dynamicImportVars(),
+  ],
+}

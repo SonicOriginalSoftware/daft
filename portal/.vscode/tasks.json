@@ -18,6 +18,15 @@
         "isDefault": true
       },
       "label": "Build Debug Portal Server"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "path": "app/",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "Build App",
+      "detail": "rollup -c --environment PUBLIC:public"
     }
   ]
 }
