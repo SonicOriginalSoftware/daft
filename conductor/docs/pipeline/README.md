@@ -32,10 +32,10 @@ Jobs are executed sequentially, in-parallel. See the `[example.yaml](./example.y
   - `resources`: scripts, artifacts, files to be included (sent along with the pipeline steps) when this job runs (represented as paths)
   - `parallel`: execute other jobs in a parallel fashion, defaults to `true`
   - `attributes`
-    - `shell` (posix, powershell)
     - `OS` (windows, linux, macOS, any)
-    - `arch` (x86_64, arm64)
-  - `script`: the path to the script file to execute
+    - `arch` (x86_64, arm64, etc.)
+    - `libc` (msvc, glibc, musl)
+  - `command`: the path to the script file to execute
   - `artifacts`: map of artifact names and the path of the artifact to be uploaded
 
     Artifacts are uploaded as a single file if the artifact path is a single file, otherwise they will be archived, compressed, and uploaded.

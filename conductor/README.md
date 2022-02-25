@@ -18,8 +18,10 @@ Other scaffold-ready 1st party events can be read about in the component documen
 
 Events can be daisy-chained by calling the `queue` endpoint from your pipeline.
 
-# [Pipeline](pipeline)
+# [Pipelines](docs/pipeline)
 
-# [Server](server)
+# [Server](docs/server)
 
-# [Runner](runner)
+# [Queue](docs/queue)
+
+# [Runner](docs/runner)

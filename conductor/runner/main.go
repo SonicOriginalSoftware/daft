@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	"runner/lib"
-	"runner/service"
+	"conductor/runner/lib"
+	"conductor/runner/service"
 )
 
 func main() {

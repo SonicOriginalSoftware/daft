@@ -7,9 +7,6 @@ import (
 
 // Job is a data structure model of a job
 type Job struct {
-	script string
-	env    []string
-
 	outlog *log.Logger
 	errlog *log.Logger
 
@@ -28,15 +25,18 @@ func New(
 	errlog *log.Logger,
 ) (*Job, error) {
 	// FIXME Get the script from the rawJob
-	script := ""
+	command := ""
 	// FIXME Get the env from the rawJob
 	env := make([]string, 0)
 	// FIXME Set a clean working directory for each job
 	workingDirectory := ""
 
-	cmd := exec.Command(script)
+	cmd := exec.Command(command)
+
+	// FIXME Set stdout and stderr to log to files in the working directory
 	cmd.Stdout = outlog.Writer()
 	cmd.Stderr = errlog.Writer()
+
 	cmd.Env = env
 	cmd.Dir = workingDirectory
 
