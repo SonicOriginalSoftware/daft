@@ -2,9 +2,9 @@ The `conductor` component uses event-driven architecture to facilitate software 
 
 It also maintains state/load-balancing of the runners and pipeline queue it is responible for.
 
-# Can the conductor service be on the same machine as runner service(s)?
+**Can the conductor service be on the same machine as runner service(s)?**
 
-Sure. But you are competing for resources.
+>  Sure. But you are competing for resources.
 
 # Events
 
