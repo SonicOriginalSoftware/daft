@@ -22,9 +22,9 @@ Jobs are executed sequentially, in-parallel. See the `[example.yaml](./example.y
 
 - `events`: map of events that will trigger this pipeline
 
-- `env`: global env variables used by all stages/jobs
+- `env`: global env variables used by all jobs
 
-- `resources`: scripts, artifacts, files to be included in all stages and jobs
+- `resources`: scripts, artifacts, files to be included in all jobs
 
 - `jobs`: individual task executed on a runner (default occurs in parallel)
   - `env`: Environment variables usable by this job
@@ -38,7 +38,7 @@ Jobs are executed sequentially, in-parallel. See the `[example.yaml](./example.y
   - `script`: the path to the script file to execute
   - `artifacts`: map of artifact names and the path of the artifact to be uploaded
 
-      Artifacts are uploaded as a single file if the artifact path is a single file, otherwise they will be archived, compressed, and uploaded.
+    Artifacts are uploaded as a single file if the artifact path is a single file, otherwise they will be archived, compressed, and uploaded.
 
 # Pre-defined variables
 

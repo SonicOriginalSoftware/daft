@@ -29,10 +29,10 @@ func New(
 ) (*Job, error) {
 	// FIXME Get the script from the rawJob
 	script := ""
-	// FIXME Get the working directory from the rawJob
-	workingDirectory := ""
 	// FIXME Get the env from the rawJob
 	env := make([]string, 0)
+	// FIXME Set a clean working directory for each job
+	workingDirectory := ""
 
 	cmd := exec.Command(script)
 	cmd.Stdout = outlog.Writer()
