@@ -1,4 +1,4 @@
-Receives requests to queue pipelines, parses their payload, and then forwards the appropriate pipeline for that event on to the [queue](queue).
+Receives requests to queue pipelines, parses and verifies their payload, and then forwards the appropriate jobs for the pipeline event(s) on to the [queue](queue).
 
 The `conductor` server only cares about whether it successfully adds a pipeline to a queue; the response should not dictate whether a runner has been assigned. It can report on where in the queue that pipeline was seated.
 

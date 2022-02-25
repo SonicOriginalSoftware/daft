@@ -2,8 +2,6 @@ The `conductor` component uses event-driven architecture to facilitate software 
 
 It also maintains state/load-balancing of the runners and pipeline queue it is responible for.
 
-There can be only one conductor per portal hierarchy chain, located at the top.
-
 # Can the conductor service be on the same machine as runner service(s)?
 
 Sure. But you are competing for resources.

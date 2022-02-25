@@ -52,8 +52,8 @@ Authorization is inherited between portals (sub-portals will retain the same aut
 
 ## Conductor
 
-- initialize a conductor (top-level portal only)
-- deinitialize a conductor (top-level portal only)
+- initialize a conductor
+- deinitialize a conductor
 
 ## Issue Tracker
 

@@ -16,7 +16,9 @@ Note that the queue has access to pipeline files, not necessarily source code. T
 
 # Basic syntax
 
-Pipelines are broken down into Stages, then Jobs, then Steps.
+Pipelines are broken down into jobs and their scripts.
+
+Jobs are executed sequentially, in-parallel. See the `[example.yaml](./example.yaml)` for an example.
 
 - `events`: map of events that will trigger this pipeline
 
@@ -24,20 +26,17 @@ Pipelines are broken down into Stages, then Jobs, then Steps.
 
 - `resources`: scripts, artifacts, files to be included in all stages and jobs
 
-- `stages`: occur sequentially, top-level
-  - `env`: Environment variables used by all jobs in this stage
-  - `if`: Conditional for when to execute this stage
-  - `resources`: scripts, artifacts, files to be included in all jobs in this stage (represented as paths)
-  - `jobs`: occur in parallel, belonging to a `stage`, executed on a runner
-    - `env`: Environment variables usable by this job
-    - `if`: Conditional for when to execute this job
-    - `resources`: scripts, artifacts, files to be included (sent along with the pipeline steps) when this job runs (represented as paths)
-    - `attributes`
-      - `shell` (posix, powershell)
-      - `OS` (windows, linux, macOS, any)
-      - `arch` (x86_64, arm64)
-    - `script`: the path to the script file to execute
-    - `artifacts`: map of artifact names and the path of the artifact to be uploaded
+- `jobs`: individual task executed on a runner (default occurs in parallel)
+  - `env`: Environment variables usable by this job
+  - `if`: Conditional for when to execute this job
+  - `resources`: scripts, artifacts, files to be included (sent along with the pipeline steps) when this job runs (represented as paths)
+  - `parallel`: execute other jobs in a parallel fashion, defaults to `true`
+  - `attributes`
+    - `shell` (posix, powershell)
+    - `OS` (windows, linux, macOS, any)
+    - `arch` (x86_64, arm64)
+  - `script`: the path to the script file to execute
+  - `artifacts`: map of artifact names and the path of the artifact to be uploaded
 
       Artifacts are uploaded as a single file if the artifact path is a single file, otherwise they will be archived, compressed, and uploaded.
 

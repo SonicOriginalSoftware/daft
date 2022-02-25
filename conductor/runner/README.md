@@ -8,9 +8,13 @@ Configure runners attached to the `conductor` through the portal.
 
 Configuring runners includes defining network location and attributes for each runner service.
 
+# Purpose
+
+`conductor` `runner`s run individual jobs passed on to it from the `conductor` `server`/`queue`.
+
 # Server
 
-Conductor queue sends job commands to a runner through an http server.
+Conductor `queue` sends jobs to a runner through an http server.
 
 ## Endpoints
 
