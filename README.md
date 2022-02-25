@@ -12,6 +12,8 @@ And artifact hosting?
 
 And ...
 
+And would like a solution that is completely modular in nature?
+
 And GitLab is taking too long to implement even the most basic of features?
 
 Look no further. The solution is here!
