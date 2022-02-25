@@ -8,7 +8,7 @@ The `conductor` server only cares about whether it successfully adds a pipeline 
 
   This will report back a failing status code if the pipeline could not be added to the queue.
 
-  Otherwise responds with a `200` and the location of the pipeline in the queue.
+  Otherwise responds with a `200` and the location/identifier of the pipeline in the queue.
 
 # `portal` communication
 

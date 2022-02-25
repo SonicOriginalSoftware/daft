@@ -1,4 +1,4 @@
-# The Solution
+# Daft
 
 # What is this?
 
@@ -14,15 +14,11 @@ And ...
 
 And GitLab is taking too long to implement even the most basic of features?
 
-Look no further. The Solution is here!
+Look no further. The solution is here!
 
 # Are you full of yourself?
 
 Really, I'm not. I couldn't think of a good name and I wanted to jump straight into implementing rather than figure out what FOTM single-word trendy name would suit this system.
-
-# Migration to Deno
-
-Once Deno wraps up http2 and runs on ARM64/musl, this project will migrate to using Deno over nodejs.
 
 # Dogfood
 

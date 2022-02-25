@@ -147,7 +147,7 @@ To keep artifacts living in a more perpetual state you can upload to the include
 
 # Confidential information/secrets
 
-Secrets can be stored with the included `key-vault` component and retrieved from there using some included/pre-defined functions.
+Secrets can be stored with the included `safe` component and retrieved from there using some included/pre-defined functions.
 
 You can also retrieve keys stored through Azure Key Vault or some other key manager using whatever means that provider has accessible (`curl` through a REST API?).
 

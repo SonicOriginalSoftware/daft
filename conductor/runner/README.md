@@ -1,4 +1,4 @@
-<!-- runner software should be able to be run cross-platform -->
+<!-- runner software should be able to be run cross-platform and statically -->
 <!-- i.e. should be able to spin-up a deamonized runner on macOS, linux, or Windows -->
 <!-- linux runners could be containerized -->
 <!-- should allow runners to be configured across networks -->
@@ -25,7 +25,7 @@ Conductor queue sends job commands to a runner through an http server.
 
 # Jobs
 
-The runner executes job commands and when finished, reports that the runner is available for new jobs.
+The runner executes job commands and when finished reports that the runner is available for new jobs.
 
 # Attributes
 

@@ -1,10 +1,10 @@
 # Design then Test
 
-Before you so much as touch a programming language file I better see a commit with documentation on the contract with which your contribution is supposed to be implementing.
+Before you so much as touch a source file I better see a commit with documentation on the contract with which your contribution is supposed to be implementing.
 
 This is for multiple reasons.
 
-1. It keeps you from wasting your time submitting work that would not be merged into The Solution.
+1. It keeps you from wasting your time submitting work that would not be merged
 2. It keeps from following [Bad Practice](#bad-practice)
 
 # Test then Implement
