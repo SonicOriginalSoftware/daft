@@ -1,53 +1,75 @@
 package lib
 
 import (
-	"conductor/generated"
+	"context"
 	"fmt"
 	"log"
 	"net"
 	"os"
+	"os/signal"
 
 	"google.golang.org/grpc"
 )
 
 var port = lookupPort()
 
-type Service generated.RunnerServer
+// Init initializes shared variables among all Services
+func Init() (
+	outlog *log.Logger,
+	errlog *log.Logger,
+	listener net.Listener,
+	grpcServer *grpc.Server,
+	parentContext context.Context,
+	cancel context.CancelFunc,
+	err error,
+) {
+	outlog = log.New(os.Stdout, "", log.LstdFlags)
+	errlog = log.New(os.Stderr, "[ERROR] ", log.LstdFlags)
 
-// RegisterFunction is a function that registers a grpc.ServiceRegistrar and a Server Service
-type RegisterFunction func(s grpc.ServiceRegistrar, server Service)
-
-// Main wraps the main functionality of all servers
-func Main(registerFunction RegisterFunction, service Service) {
-	outlog := log.New(os.Stdout, "", log.LstdFlags)
-	errlog := log.New(os.Stderr, "[ERROR] ", log.LstdFlags)
+	parentContext, cancel = context.WithCancel(context.Background())
 
 	outlog.Printf("Spinning up service...")
 
-	listener, err := net.Listen("tcp", fmt.Sprintf(":%v", port))
+	listener, err = net.Listen("tcp", fmt.Sprintf(":%v", port))
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		log.Printf("failed to listen: %v", err)
+		return
 	}
 
-	grpcServer := grpc.NewServer([]grpc.ServerOption{}...)
-	registerFunction(grpcServer, service)
+	grpcServer = grpc.NewServer([]grpc.ServerOption{}...)
 
-	served := RegisterServer(grpcServer, listener, *errlog)
+	return
+}
+
+// Main wraps the main functionality of all servers
+func Main(
+	parentContext context.Context,
+	outlog *log.Logger,
+	errlog *log.Logger,
+	listener net.Listener,
+	grpcServer *grpc.Server,
+	cancel context.CancelFunc,
+) (err error) {
+	interrupt, _ := signal.NotifyContext(parentContext, os.Interrupt, os.Kill)
+
+	served := make(chan error, 1)
+	go func() { served <- grpcServer.Serve(listener) }()
 	defer close(served)
-
-	interrupt := RegisterInterrupt()
-	defer close(interrupt)
 
 	interrupted := false
 	for !interrupted {
 		select {
-		case s := <-served:
-			outlog.Printf("Server stopped: %v\n", s)
-		case s := <-interrupt:
-			outlog.Printf("Service stop requested: %v\n", s)
+		case err = <-served:
+			outlog.Printf("Server stopped: %v\n", err)
+		case done := <-interrupt.Done():
+			outlog.Printf("Service stop requested: %v\n", done)
+			outlog.Printf("Gracefully shutting down server...\n")
+			grpcServer.GracefulStop()
+			outlog.Printf("Gracefully shut down server!\n")
 		}
 		interrupted = true
 	}
 
 	outlog.Printf("Service stopped!")
+	return
 }
