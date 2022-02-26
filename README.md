@@ -59,7 +59,7 @@ Source control repository hosting.
 
 - [`svn` repository hosting](code-repository/svn)
 
-# [Conductor](conductor)
+# [Conductor](https://github.com/SonicOriginalSoftware/conductor)
 
 Automate your processes.
 

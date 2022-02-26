@@ -1,6 +1,6 @@
 Host git Code Repositories.
 
-Repos are pre-configured with hooks that can be used with the included [`conductor`](../../conductor) component or other CI/CD tools.
+Repos are pre-configured with hooks that can be used with the included `conductor` component or other CI/CD tools.
 
 # [Server](server)
 

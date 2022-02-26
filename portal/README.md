@@ -48,12 +48,12 @@ Authorization is inherited between portals (sub-portals will retain the same aut
 - manage branches (defaults, renames, deletions, etc.)
 - assign branch protections
 - manage repository hooks
-  - enable communication with top-level conductor or configure attaching other automation systems
+  - enable communication with top-level `conductor` or configure attaching other automation systems
 
 ## Conductor
 
-- initialize a conductor
-- deinitialize a conductor
+- initialize a `conductor`
+- deinitialize a `conductor`
 
 ## Issue Tracker
 
