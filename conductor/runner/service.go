@@ -1,4 +1,4 @@
-package service
+package main
 
 import (
 	"conductor/generated"
@@ -9,8 +9,6 @@ import (
 // Service contains runner service properties
 type Service struct {
 	generated.UnimplementedRunnerServer
-	// TODO Do we need a port?
-	// We have to be listening for outside communication SOMEHOW
 }
 
 // Run a Job
