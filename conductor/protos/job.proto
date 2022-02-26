@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "./";
+option go_package = "./generated";
 
 message Job {
   string command = 1;
@@ -38,3 +38,5 @@ message Job {
     LibC libc = 3;
   }
 }
+
+message JobResult {}

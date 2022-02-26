@@ -1,21 +1,28 @@
 package service
 
+import (
+	"conductor/generated"
+	"context"
+	"os/exec"
+)
+
 // Service contains runner service properties
 type Service struct {
+	generated.UnimplementedRunnerServer
 	// TODO Do we need a port?
 	// We have to be listening for outside communication SOMEHOW
 }
 
-// Run the runner service
-func (service *Service) Run() (err error) {
-	// FIXME This needs to be changed into a goroutine that can be `select`ed from
-	// FIXME What are we going to await? Do we run an HTTP server? A gRPC service?
-	return nil
-}
+// Run a Job
+func (rs *Service) Run(_ context.Context, job *generated.Job) (*generated.Nil, error) {
+	workingDirectory := ""
 
-// New creates a new Service instance
-func New() (service *Service, err error) {
-	// TODO Initialize necessary variables from the environment defining
-	// hosting information about the Service
-	return &Service{}, err
+	cmd := exec.Command(job.Command)
+	cmd.Env = job.Env
+	cmd.Dir = workingDirectory
+
+	// cmd.Stdout =
+	// cmd.Stderr =
+
+	return &generated.Nil{}, cmd.Run()
 }

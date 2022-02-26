@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "./";
+option go_package = "./generated";
 
 import "job.proto";
 
@@ -11,3 +11,5 @@ message Pipeline {
 
   repeated Job jobs = 10;
 }
+
+message PipelineResult {}
